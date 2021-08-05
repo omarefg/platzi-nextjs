@@ -1,5 +1,5 @@
-import React from 'react'
-import { Header, Divider, Table } from 'semantic-ui-react'
+import React from 'react';
+import { Header, Divider, Table } from 'semantic-ui-react';
 
 const ProductAttributes = ({
   description,
@@ -38,6 +38,6 @@ const ProductAttributes = ({
       `}
     </style>
   </section>
-)
+);
 
-export default ProductAttributes
+export default ProductAttributes;

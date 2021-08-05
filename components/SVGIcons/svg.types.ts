@@ -1,3 +1,3 @@
 export type SVGIconProps = {
   size?: string
-} & React.SVGProps<SVGSVGElement>
+} & React.SVGProps<SVGSVGElement>;

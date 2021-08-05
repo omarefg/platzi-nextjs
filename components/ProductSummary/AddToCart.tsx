@@ -1,61 +1,59 @@
-import React, { useState } from 'react'
-import { Input, Icon, Transition } from 'semantic-ui-react'
-import { useCartMutations } from '@store/Cart'
+import React, { useState } from 'react';
+import { Input, Icon, Transition } from 'semantic-ui-react';
+import { useCartMutations } from '@store/Cart';
 
 type AddToCartProps = {
   product: TProduct
-}
+};
 
 // Fake a server Response, we don't care on this project
 // about data persistency, but you may add it :)
-const addToCartRequest = () =>
-  new Promise((resolve) => {
-    window.setTimeout(resolve, 600)
-  })
+const addToCartRequest = () => new Promise((resolve) => {
+  window.setTimeout(resolve, 600);
+});
 
 const validate = (quantity: number) => {
-  let error = ''
-  if (quantity < 1) error = "Can't be blank"
+  let error = '';
+  if (quantity < 1) error = "Can't be blank";
 
-  return error
-}
+  return error;
+};
 
 const AddToCart = ({ product }: AddToCartProps) => {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-  const [quantity, setQuantity] = useState(1)
-  const [visible, setVisible] = useState(false)
-  const { addToCart } = useCartMutations()
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [quantity, setQuantity] = useState(1);
+  const [visible, setVisible] = useState(false);
+  const { addToCart } = useCartMutations();
 
   const toggleMessage = () => {
     setTimeout(() => {
-      setVisible(false)
-    }, 1000)
-  }
+      setVisible(false);
+    }, 1000);
+  };
 
   const handleSubmit = async () => {
-    const submitError = validate(quantity)
-    setError(submitError)
+    const submitError = validate(quantity);
+    setError(submitError);
 
     if (!submitError) {
-      setLoading(true)
+      setLoading(true);
       addToCartRequest()
         .then(() => {
-          addToCart(product, quantity)
-          setLoading(false)
-          setQuantity(quantity)
-          setVisible(true)
-          toggleMessage()
+          addToCart(product, quantity);
+          setLoading(false);
+          setQuantity(quantity);
+          setVisible(true);
+          toggleMessage();
         })
         .catch((err: Error) => {
-          setError(`Error: ${err}` || 'Something went wrong')
-          setLoading(false)
-        })
+          setError(`Error: ${err}` || 'Something went wrong');
+          setLoading(false);
+        });
     }
-  }
+  };
 
-  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) =>
-    setQuantity(parseInt(target.value, 10))
+  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => setQuantity(parseInt(target.value, 10));
 
   return (
     <React.Fragment>
@@ -86,7 +84,7 @@ const AddToCart = ({ product }: AddToCartProps) => {
         </div>
       </Transition>
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default AddToCart
+export default AddToCart;

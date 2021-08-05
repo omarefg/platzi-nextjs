@@ -1,5 +1,5 @@
-import React from 'react'
-import { SVGIconProps } from './svg.types'
+import React from 'react';
+import { SVGIconProps } from './svg.types';
 
 /**
  * Original Icon from Freepik, set: Cinco de Mayo.
@@ -104,6 +104,6 @@ const PosMeMuero = ({ size = '58px', ...otherProps }: SVGIconProps) => (
     <use xlinkHref="#p" />
     <use xlinkHref="#q" />
   </svg>
-)
+);
 
-export default PosMeMuero
+export default PosMeMuero;

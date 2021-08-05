@@ -1,12 +1,12 @@
-import React from 'react'
-import { Item, Label } from 'semantic-ui-react'
+import React from 'react';
+import { Item, Label } from 'semantic-ui-react';
 
-import AddToCart from './AddToCart'
-import ProductAttributes from './ProductAttributes'
+import AddToCart from './AddToCart';
+import ProductAttributes from './ProductAttributes';
 
 type ProductSummaryProps = {
   product: TProduct
-}
+};
 
 const ProductSummary = ({ product }: ProductSummaryProps) => (
   <React.Fragment>
@@ -29,6 +29,6 @@ const ProductSummary = ({ product }: ProductSummaryProps) => (
     </Item.Group>
     <ProductAttributes {...product.attributes} />
   </React.Fragment>
-)
+);
 
-export default ProductSummary
+export default ProductSummary;

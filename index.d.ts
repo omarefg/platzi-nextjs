@@ -1,20 +1,20 @@
-type Url = string
+type Url = string;
 type Json =
   | string
   | number
   | boolean
   | null
   | { [property: string]: Json }
-  | Json[]
+  | Json[];
 
-type TProductId = string
+type TProductId = string;
 
 type TProductAttributes = {
   description: string
   shape: string
   hardiness: string
   taste: string
-}
+};
 
 type TProduct = {
   id: TProductId
@@ -23,12 +23,12 @@ type TProduct = {
   price: number
   image: Url
   attributes: TProductAttributes
-}
+};
 
-type TAPIAVODetailResponse = TProduct
+type TAPIAVODetailResponse = TProduct;
 
 type TAPIAvoResponse = {
   length: number
   data: TProduct[]
   error?: string
-}
+};

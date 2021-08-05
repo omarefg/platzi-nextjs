@@ -1,12 +1,12 @@
-import React from 'react'
-import { Container } from 'semantic-ui-react'
+import React from 'react';
+import { Container } from 'semantic-ui-react';
 
-import Navbar from '@components/Navbar/Navbar'
-import Footer from '@components/Footer/Footer'
+import Navbar from '@components/Navbar/Navbar';
+import Footer from '@components/Footer/Footer';
 
 type LayoutProps = {
   children?: React.ReactNode
-}
+};
 
 const Layout = ({ children }: LayoutProps) => (
   <React.Fragment>
@@ -16,6 +16,6 @@ const Layout = ({ children }: LayoutProps) => (
     </Container>
     <Footer />
   </React.Fragment>
-)
+);
 
-export default Layout
+export default Layout;

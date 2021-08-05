@@ -1,21 +1,21 @@
-import React from 'react'
-import Link from 'next/link'
-import { GetStaticProps } from 'next'
-import fetch from 'isomorphic-unfetch'
-import Layout from '@components/Layout/Layout'
-import KawaiiHeader from '@components/KawaiiHeader/KawaiiHeader'
-import ProductList from '@components/ProductList/ProductList'
+import React from 'react';
+import Link from 'next/link';
+import { GetStaticProps } from 'next';
+import fetch from 'isomorphic-unfetch';
+import Layout from '@components/Layout/Layout';
+import KawaiiHeader from '@components/KawaiiHeader/KawaiiHeader';
+import ProductList from '@components/ProductList/ProductList';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch('https://platzi-avo.vercel.app/api/avo')
-  const { data: productList }: TAPIAvoResponse = await response.json()
+  const response = await fetch('https://platzi-avo.vercel.app/api/avo');
+  const { data: productList }: TAPIAvoResponse = await response.json();
 
   return {
     props: {
       productList,
     },
-  }
-}
+  };
+};
 
 const HomePage = ({ productList }: { productList: TProduct[] }) => (
   <Layout>
@@ -35,6 +35,6 @@ const HomePage = ({ productList }: { productList: TProduct[] }) => (
       `}
     </style>
   </Layout>
-)
+);
 
-export default HomePage
+export default HomePage;

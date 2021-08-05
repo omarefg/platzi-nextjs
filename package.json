@@ -12,7 +12,7 @@
     "start": "next start",
     "type-check": "tsc --noEmit",
     "prepare": "husky install",
-    "pre-commit": "yarn pretty-quick --staged",
+    "pre-commit": "eslint --fix --ext .js,.ts,.tsx .",
     "pre-push": "yarn type-check"
   },
   "dependencies": {

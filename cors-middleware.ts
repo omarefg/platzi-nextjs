@@ -1,11 +1,11 @@
-import corsWrapper from 'cors'
-import { NextApiRequest, NextApiResponse } from 'next'
+import corsWrapper from 'cors';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 type MiddlewareFunc = (
   req: NextApiRequest,
   res: NextApiResponse,
   next: (err?: Error) => void
-) => void
+) => void;
 
 /**
  * Hey there you curious :)
@@ -19,21 +19,20 @@ type MiddlewareFunc = (
  */
 const CORS_OPTIONS = {
   methods: ['GET', 'OPTIONS'],
-}
+};
 
 function promisifyMiddleware(middleware: MiddlewareFunc) {
-  return (req: any, res: any) =>
-    new Promise((resolve, reject) => {
-      middleware(req, res, (result: Error | unknown) => {
-        if (result instanceof Error) {
-          return reject(result)
-        }
-        return resolve(result)
-      })
-    })
+  return (req: any, res: any) => new Promise((resolve, reject) => {
+    middleware(req, res, (result: Error | unknown) => {
+      if (result instanceof Error) {
+        return reject(result);
+      }
+      return resolve(result);
+    });
+  });
 }
 
 // Initialize the cors middleware
-const cors = promisifyMiddleware(corsWrapper(CORS_OPTIONS))
+const cors = promisifyMiddleware(corsWrapper(CORS_OPTIONS));
 
-export default cors
+export default cors;

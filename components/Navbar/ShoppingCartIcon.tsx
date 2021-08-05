@@ -1,25 +1,26 @@
-import React from 'react'
-import { Basket } from '@components/SVGIcons'
+import React from 'react';
+import { Basket } from '@components/SVGIcons';
 
 type ShoppingCartIconProps = {
   cartCount: number
   name: string
-}
+};
 
 const ShoppingCartIcon = ({ cartCount, name }: ShoppingCartIconProps) => {
   const showCartCount = () => {
     if (!cartCount) {
-      return '(0)'
+      return '(0)';
     }
     if (cartCount > 9) {
       return (
         <span>
-          9<sup>+</sup>
+          9
+          <sup>+</sup>
         </span>
-      )
+      );
     }
-    return `(${cartCount})`
-  }
+    return `(${cartCount})`;
+  };
 
   return (
     <div className="container">
@@ -43,7 +44,7 @@ const ShoppingCartIcon = ({ cartCount, name }: ShoppingCartIconProps) => {
         `}
       </style>
     </div>
-  )
-}
+  );
+};
 
-export default ShoppingCartIcon
+export default ShoppingCartIcon;

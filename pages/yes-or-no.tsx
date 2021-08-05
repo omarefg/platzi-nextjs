@@ -1,47 +1,47 @@
-import React, { useState, useEffect } from 'react'
-import fetch from 'isomorphic-unfetch'
-import Link from 'next/link'
+import React, { useState, useEffect } from 'react';
+import fetch from 'isomorphic-unfetch';
+import Link from 'next/link';
 
-import { Header, Button } from 'semantic-ui-react'
-import Layout from '@components/Layout/Layout'
+import { Header, Button } from 'semantic-ui-react';
+import Layout from '@components/Layout/Layout';
 
 type YesOrNoApiResponse = {
   data: 'yes' | 'no'
-}
+};
 
 const fetchResult = async () => {
-  const res = await fetch('https://platzi-avo.vercel.app/api/yes-or-no')
-  const { data }: YesOrNoApiResponse = await res.json()
+  const res = await fetch('https://platzi-avo.vercel.app/api/yes-or-no');
+  const { data }: YesOrNoApiResponse = await res.json();
 
-  return data
-}
+  return data;
+};
 
 export async function getServerSideProps() {
-  const initialResult = await fetchResult()
+  const initialResult = await fetchResult();
 
   return {
     props: {
       initialResult,
     },
-  }
+  };
 }
 
 const YesOrNo = ({ initialResult }: { initialResult: string }) => {
-  const [isLoading, setIsLoading] = useState(false)
-  const [result, setResult] = useState(initialResult)
-  const [triggerCount, setTriggerCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = useState(initialResult);
+  const [triggerCount, setTriggerCount] = useState(0);
 
   useEffect(() => {
-    setIsLoading(true)
+    setIsLoading(true);
     fetchResult().then((res) => {
-      setResult(res)
-      setIsLoading(false)
-    })
-  }, [triggerCount])
+      setResult(res);
+      setIsLoading(false);
+    });
+  }, [triggerCount]);
 
   const onClick = async () => {
-    setTriggerCount(triggerCount + 1)
-  }
+    setTriggerCount(triggerCount + 1);
+  };
 
   return (
     <Layout>
@@ -79,7 +79,7 @@ const YesOrNo = ({ initialResult }: { initialResult: string }) => {
         `}
       </style>
     </Layout>
-  )
-}
+  );
+};
 
-export default YesOrNo
+export default YesOrNo;

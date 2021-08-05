@@ -1,34 +1,33 @@
 // Oh you curious...
 // This is not a real database,
 // But let's imagine it is one :)
-import allData from './data'
+import allData from './data';
 
 // Let's also add a delay to make it a bit closer to reality
-const randomDelay = () =>
-  new Promise((resolve) => {
-    const max = 350
-    const min = 100
-    const delay = Math.floor(Math.random() * (max - min + 1)) + min
+const randomDelay = () => new Promise((resolve) => {
+  const max = 350;
+  const min = 100;
+  const delay = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    setTimeout(resolve, delay)
-  })
+  setTimeout(resolve, delay);
+});
 
 class Database {
   static async getAll(): Promise<TProduct[]> {
-    const asArray = Object.values(allData)
-    await randomDelay()
-    return asArray
+    const asArray = Object.values(allData);
+    await randomDelay();
+    return asArray;
   }
 
   static async getById(id: string): Promise<TProduct | null> {
     if (!Object.prototype.hasOwnProperty.call(allData, id)) {
-      return null
+      return null;
     }
 
-    const entry = allData[id]
-    await randomDelay()
-    return entry
+    const entry = allData[id];
+    await randomDelay();
+    return entry;
   }
 }
 
-export default Database
+export default Database;

@@ -5,6 +5,6 @@ module.exports = {
         source: '/avocado/:path*',
         destination: '/product/:path*',
       },
-    ]
+    ];
   },
-}
+};

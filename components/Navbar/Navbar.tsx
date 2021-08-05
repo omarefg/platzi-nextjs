@@ -1,15 +1,15 @@
-import React from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { Menu, Container } from 'semantic-ui-react'
+import React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Menu, Container } from 'semantic-ui-react';
 
-import { Avocado } from '@components/SVGIcons'
-import { useCart } from '@store/Cart'
-import ShoppingCartIcon from './ShoppingCartIcon'
+import { Avocado } from '@components/SVGIcons';
+import { useCart } from '@store/Cart';
+import ShoppingCartIcon from './ShoppingCartIcon';
 
 const Navbar = () => {
-  const { pathname } = useRouter()
-  const { count: cartCount } = useCart()
+  const { pathname } = useRouter();
+  const { count: cartCount } = useCart();
 
   return (
     <Menu size="huge" borderless pointing as="header">
@@ -39,7 +39,7 @@ const Navbar = () => {
         `}
       </style>
     </Menu>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

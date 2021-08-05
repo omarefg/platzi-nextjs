@@ -1,6 +1,8 @@
-import React from 'react'
-import Link from 'next/link'
-import { Segment, Container, Grid, List, Header } from 'semantic-ui-react'
+import React from 'react';
+import Link from 'next/link';
+import {
+  Segment, Container, Grid, List, Header,
+} from 'semantic-ui-react';
 
 const Footer = () => (
   <Segment
@@ -38,8 +40,11 @@ const Footer = () => (
           <Grid.Column width={7}>
             <Header as="h4">Hecho para</Header>
             <p>
-              <a href="https://platzi.com/">Platzi y su curso de Next.JS</a> de
-              Platzi dictado por{' '}
+              <a href="https://platzi.com/">Platzi y su curso de Next.JS</a>
+              {' '}
+              de
+              Platzi dictado por
+              {' '}
               <a href="https://twitter.com/jonalvarezz">@jonalvarezz</a>
             </p>
             <List horizontal style={{ display: 'flex' }}>
@@ -51,11 +56,11 @@ const Footer = () => (
               <List.Item
                 icon="github"
                 style={{ display: 'flex' }}
-                content={
+                content={(
                   <a href="https://github.com/jonalvarezz/platzi-nextjs">
                     GitHub
                   </a>
-                }
+                )}
               />
             </List>
           </Grid.Column>
@@ -63,7 +68,8 @@ const Footer = () => (
       </Grid>
       <div className="colophon">
         <p className="colophon-entry">
-          Icons made by{' '}
+          Icons made by
+          {' '}
           <a
             target="_blank"
             href="https://www.flaticon.com/authors/freepik"
@@ -83,7 +89,8 @@ const Footer = () => (
           </a>
         </p>
         <p className="colophon-entry">
-          Avocado images taken from{' '}
+          Avocado images taken from
+          {' '}
           <a
             className="acnor"
             target="_blank"
@@ -120,6 +127,6 @@ const Footer = () => (
       `}
     </style>
   </Segment>
-)
+);
 
-export default Footer
+export default Footer;

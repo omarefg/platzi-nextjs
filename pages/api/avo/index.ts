@@ -1,28 +1,28 @@
-import { IncomingMessage, ServerResponse } from 'http'
-import DB from '@database'
-import enablePublicAccess from '@cors'
+import { IncomingMessage, ServerResponse } from 'http';
+import DB from '@database';
+import enablePublicAccess from '@cors';
 
 const allAvos = async (req: IncomingMessage, res: ServerResponse) => {
   try {
     // Generally, you would not want this in your apps.
     // See more in 'cors.js'
-    await enablePublicAccess(req, res)
+    await enablePublicAccess(req, res);
 
-    const allEntries = await DB.getAll()
-    const { length } = allEntries
+    const allEntries = await DB.getAll();
+    const { length } = allEntries;
 
     // Notice: We're manually setting the response object
     // However Next.JS offers Express-like helpers :)
     // https://nextjs.org/docs/api-routes/response-helpers
-    res.statusCode = 200
-    res.setHeader('Content-Type', 'application/json')
-    res.end(JSON.stringify({ length, data: allEntries }))
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ length, data: allEntries }));
   } catch (e) {
-    res.statusCode = 500
+    res.statusCode = 500;
     res.end(
-      JSON.stringify({ length: 0, data: [], error: 'Something went wrong' })
-    )
+      JSON.stringify({ length: 0, data: [], error: 'Something went wrong' }),
+    );
   }
-}
+};
 
-export default allAvos
+export default allAvos;

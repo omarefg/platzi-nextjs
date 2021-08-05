@@ -125,6 +125,6 @@ const data: Record<TProductId, TProduct> = {
       taste: 'Splendid, is an avocado',
     },
   },
-}
+};
 
-export default data
+export default data;

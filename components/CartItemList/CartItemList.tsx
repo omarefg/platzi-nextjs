@@ -1,19 +1,21 @@
-import Link from 'next/link'
-import { Item, Button, Loader, Message } from 'semantic-ui-react'
-import { CartItemType } from '@store/Cart'
+import Link from 'next/link';
+import {
+  Item, Button, Loader, Message,
+} from 'semantic-ui-react';
+import { CartItemType } from '@store/Cart';
 
 type CartItemListProps = {
   items: CartItemType[]
   removeFromCart: (product: TProduct) => void
   loading?: boolean
-}
+};
 
 const CartItemList = ({
   items,
   removeFromCart,
   loading = false,
 }: CartItemListProps) => {
-  if (loading) return <Loader active inline="centered" />
+  if (loading) return <Loader active inline="centered" />;
 
   if (items.length === 0) {
     return (
@@ -23,44 +25,45 @@ const CartItemList = ({
           You will need to add some items to the cart before you can checkout.
         </p>
       </Message>
-    )
+    );
   }
 
-  const mapCartItemsToItems = (cartItems: CartItemType[]) =>
-    cartItems.map((cartItem) => {
-      const { id, name, quantity, price, image } = cartItem
+  const mapCartItemsToItems = (cartItems: CartItemType[]) => cartItems.map((cartItem) => {
+    const {
+      id, name, quantity, price, image,
+    } = cartItem;
 
-      return {
-        childKey: id,
-        header: (
-          <Item.Header>
-            <Link href={`/product/${id}/`}>
-              <a>{name}</a>
-            </Link>
-          </Item.Header>
-        ),
-        image: (
-          <Item.Image
-            src={image}
-            alt={name}
-            size="small"
-            style={{ background: '#f2f2f2' }}
-          />
-        ),
-        meta: `${quantity} x ${price}`,
-        description: 'Some more information goes here....',
-        extra: (
-          <Button
-            basic
-            icon="remove"
-            floated="right"
-            onClick={() => removeFromCart(cartItem)}
-          />
-        ),
-      }
-    })
+    return {
+      childKey: id,
+      header: (
+        <Item.Header>
+          <Link href={`/product/${id}/`}>
+            <a>{name}</a>
+          </Link>
+        </Item.Header>
+      ),
+      image: (
+        <Item.Image
+          src={image}
+          alt={name}
+          size="small"
+          style={{ background: '#f2f2f2' }}
+        />
+      ),
+      meta: `${quantity} x ${price}`,
+      description: 'Some more information goes here....',
+      extra: (
+        <Button
+          basic
+          icon="remove"
+          floated="right"
+          onClick={() => removeFromCart(cartItem)}
+        />
+      ),
+    };
+  });
 
-  return <Item.Group divided items={mapCartItemsToItems(items)} as="section" />
-}
+  return <Item.Group divided items={mapCartItemsToItems(items)} as="section" />;
+};
 
-export default CartItemList
+export default CartItemList;

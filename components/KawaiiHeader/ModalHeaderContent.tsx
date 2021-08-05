@@ -1,7 +1,7 @@
-import React from 'react'
-import { Grid, Header } from 'semantic-ui-react'
+import React from 'react';
+import { Grid, Header } from 'semantic-ui-react';
 
-import { PosMeMuero } from '@components/SVGIcons'
+import { PosMeMuero } from '@components/SVGIcons';
 
 const ModalHeaderContent = () => (
   <div className="container">
@@ -29,6 +29,6 @@ const ModalHeaderContent = () => (
       `}
     </style>
   </div>
-)
+);
 
-export default ModalHeaderContent
+export default ModalHeaderContent;

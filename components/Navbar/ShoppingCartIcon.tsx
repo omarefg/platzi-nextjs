@@ -9,7 +9,7 @@ type ShoppingCartIconProps = {
 const ShoppingCartIcon = ({ cartCount, name }: ShoppingCartIconProps) => {
   const showCartCount = () => {
     if (!cartCount) {
-      return `(0)`
+      return '(0)'
     }
     if (cartCount > 9) {
       return (
@@ -28,18 +28,20 @@ const ShoppingCartIcon = ({ cartCount, name }: ShoppingCartIconProps) => {
         {` ${name} `}
         {showCartCount()}
       </div>
-      <style jsx>{`
-        .container {
-          display: flex;
-          align-items: center;
-        }
-        .text {
-          margin-left: 0.5rem;
-        }
-        .text span {
-          font-size: smaller;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          .container {
+            display: flex;
+            align-items: center;
+          }
+          .text {
+            margin-left: 0.5rem;
+          }
+          .text span {
+            font-size: smaller;
+          }
+        `}
+      </style>
     </div>
   )
 }

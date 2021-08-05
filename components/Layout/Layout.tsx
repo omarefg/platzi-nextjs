@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 import { Container } from 'semantic-ui-react'
 
 import Navbar from '@components/Navbar/Navbar'
@@ -9,13 +9,13 @@ type LayoutProps = {
 }
 
 const Layout = ({ children }: LayoutProps) => (
-  <>
+  <React.Fragment>
     <Navbar />
     <Container as="main" text>
       {children}
     </Container>
     <Footer />
-  </>
+  </React.Fragment>
 )
 
 export default Layout

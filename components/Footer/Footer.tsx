@@ -68,11 +68,17 @@ const Footer = () => (
             target="_blank"
             href="https://www.flaticon.com/authors/freepik"
             title="Freepik"
+            rel="noreferrer"
           >
             Freepik
           </a>
           {' from '}
-          <a target="_blank" href="https://www.flaticon.com/" title="Flaticon">
+          <a
+            target="_blank"
+            href="https://www.flaticon.com/"
+            title="Flaticon"
+            rel="noreferrer"
+          >
             www.flaticon.com
           </a>
         </p>
@@ -83,6 +89,7 @@ const Footer = () => (
             target="_blank"
             href="https://www.californiaavocado.com/avocado101/avocado-varieties"
             title="California Avocado"
+            rel="noreferrer"
           >
             Avocado 101
           </a>
@@ -91,6 +98,7 @@ const Footer = () => (
             target="_blank"
             href="https://www.californiaavocado.com"
             title="Flaticon"
+            rel="noreferrer"
           >
             California Avocado
           </a>
@@ -98,17 +106,19 @@ const Footer = () => (
       </div>
     </Container>
 
-    <style jsx>{`
-      .colophon {
-        text-align: center;
-        margin-top: 3.2rem;
-        font-size: 0.8rem;
-      }
-      .colophon-entry {
-        color: grey;
-        margin-bottom: 0;
-      }
-    `}</style>
+    <style jsx>
+      {`
+        .colophon {
+          text-align: center;
+          margin-top: 3.2rem;
+          font-size: 0.8rem;
+        }
+        .colophon-entry {
+          color: grey;
+          margin-bottom: 0;
+        }
+      `}
+    </style>
   </Segment>
 )
 

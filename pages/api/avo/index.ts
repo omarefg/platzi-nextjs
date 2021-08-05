@@ -8,9 +8,8 @@ const allAvos = async (req: IncomingMessage, res: ServerResponse) => {
     // See more in 'cors.js'
     await enablePublicAccess(req, res)
 
-    const db = new DB()
-    const allEntries = await db.getAll()
-    const length = allEntries.length
+    const allEntries = await DB.getAll()
+    const { length } = allEntries
 
     // Notice: We're manually setting the response object
     // However Next.JS offers Express-like helpers :)
@@ -19,7 +18,6 @@ const allAvos = async (req: IncomingMessage, res: ServerResponse) => {
     res.setHeader('Content-Type', 'application/json')
     res.end(JSON.stringify({ length, data: allEntries }))
   } catch (e) {
-    console.error(e)
     res.statusCode = 500
     res.end(
       JSON.stringify({ length: 0, data: [], error: 'Something went wrong' })

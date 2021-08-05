@@ -9,7 +9,7 @@ type ProductSummaryProps = {
 }
 
 const ProductSummary = ({ product }: ProductSummaryProps) => (
-  <>
+  <React.Fragment>
     <Item.Group as="section">
       <Item style={{ alignItems: 'center' }}>
         <Item.Image size="medium">
@@ -28,7 +28,7 @@ const ProductSummary = ({ product }: ProductSummaryProps) => (
       </Item>
     </Item.Group>
     <ProductAttributes {...product.attributes} />
-  </>
+  </React.Fragment>
 )
 
 export default ProductSummary

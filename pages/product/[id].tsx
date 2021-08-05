@@ -32,12 +32,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return { props: { product } }
 }
 
-const ProductPage = ({ product }: { product: TProduct }) => {
-  return (
-    <Layout>
-      {product == null ? null : <ProductSummary product={product} />}
-    </Layout>
-  )
-}
+const ProductPage = ({ product }: { product: TProduct }) => (
+  <Layout>
+    {product == null ? null : <ProductSummary product={product} />}
+  </Layout>
+)
 
 export default ProductPage

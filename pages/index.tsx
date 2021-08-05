@@ -17,24 +17,24 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-const HomePage = ({ productList }: { productList: TProduct[] }) => {
-  return (
-    <Layout>
-      <KawaiiHeader />
-      <section>
-        <Link href="/yes-or-no">
-          <a>¿Deberia comer un avo hoy?</a>
-        </Link>
-      </section>
-      <ProductList products={productList} />
-      <style jsx>{`
+const HomePage = ({ productList }: { productList: TProduct[] }) => (
+  <Layout>
+    <KawaiiHeader />
+    <section>
+      <Link href="/yes-or-no">
+        <a>¿Deberia comer un avo hoy?</a>
+      </Link>
+    </section>
+    <ProductList products={productList} />
+    <style jsx>
+      {`
         section {
           text-align: center;
           margin-bottom: 2rem;
         }
-      `}</style>
-    </Layout>
-  )
-}
+      `}
+    </style>
+  </Layout>
+)
 
 export default HomePage

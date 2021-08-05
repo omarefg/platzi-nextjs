@@ -4,7 +4,7 @@ import '../global.css'
 
 import CartProvider from '@store/Cart'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+export default function MyApp({ Component, pageProps }: AppProps) {
   // Aditional props
   // Aditional layout
   // Manejar errores - componentDidCatch
@@ -14,5 +14,3 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     </CartProvider>
   )
 }
-
-export default MyApp

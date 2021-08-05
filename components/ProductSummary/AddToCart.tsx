@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Input, Icon, Transition } from 'semantic-ui-react'
 import { useCartMutations } from '@store/Cart'
 
@@ -9,7 +9,7 @@ type AddToCartProps = {
 // Fake a server Response, we don't care on this project
 // about data persistency, but you may add it :)
 const addToCartRequest = () =>
-  new Promise((resolve, reject) => {
+  new Promise((resolve) => {
     window.setTimeout(resolve, 600)
   })
 
@@ -34,10 +34,10 @@ const AddToCart = ({ product }: AddToCartProps) => {
   }
 
   const handleSubmit = async () => {
-    const error = validate(quantity)
-    setError(error)
+    const submitError = validate(quantity)
+    setError(submitError)
 
-    if (!error) {
+    if (!submitError) {
       setLoading(true)
       addToCartRequest()
         .then(() => {
@@ -58,7 +58,7 @@ const AddToCart = ({ product }: AddToCartProps) => {
     setQuantity(parseInt(target.value, 10))
 
   return (
-    <>
+    <React.Fragment>
       <Input
         type="number"
         placeholder="Quantity"
@@ -85,7 +85,7 @@ const AddToCart = ({ product }: AddToCartProps) => {
           Added to cart
         </div>
       </Transition>
-    </>
+    </React.Fragment>
   )
 }
 

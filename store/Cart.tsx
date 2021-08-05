@@ -15,21 +15,9 @@ export type CartAction = {
 const defaultState = {} as CartState
 
 const CartItemsContext = React.createContext(defaultState)
-const CartDispatchContext = React.createContext((() => {}) as Dispatch<
-  CartAction
->)
-
-const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [state, dispatch] = useReducer(cartReducers, defaultState)
-
-  return (
-    <CartItemsContext.Provider value={state}>
-      <CartDispatchContext.Provider value={dispatch}>
-        {children}
-      </CartDispatchContext.Provider>
-    </CartItemsContext.Provider>
-  )
-}
+const CartDispatchContext = React.createContext(
+  (() => {}) as Dispatch<CartAction>
+)
 
 function cartReducers(
   state: CartState,
@@ -39,7 +27,7 @@ function cartReducers(
 
   switch (type) {
     case 'add': {
-      if (existingCartItem != undefined) {
+      if (existingCartItem !== undefined) {
         const quantity = existingCartItem.quantity + qtyToAdd
         return {
           ...state,
@@ -60,7 +48,7 @@ function cartReducers(
     }
 
     case 'remove': {
-      if (existingCartItem == undefined) {
+      if (existingCartItem === undefined) {
         return state
       }
 
@@ -86,10 +74,20 @@ function cartReducers(
   }
 }
 
-const getCartSubTotal = (sum: number, item: CartItemType) => {
-  sum += item.price * item.quantity
-  return sum
+const CartProvider = ({ children }: { children: React.ReactNode }) => {
+  const [state, dispatch] = useReducer(cartReducers, defaultState)
+
+  return (
+    <CartItemsContext.Provider value={state}>
+      <CartDispatchContext.Provider value={dispatch}>
+        {children}
+      </CartDispatchContext.Provider>
+    </CartItemsContext.Provider>
+  )
 }
+
+const getCartSubTotal = (sum: number, item: CartItemType) =>
+  sum + item.price * item.quantity
 const getCartCount = (sum: number, item: CartItemType) => sum + item.quantity
 /**
  * Hey there insatiably brain,

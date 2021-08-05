@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Menu, Container } from 'semantic-ui-react'
 
 import { Avocado } from '@components/SVGIcons'
-import ShoppingCartIcon from './ShoppingCartIcon'
 import { useCart } from '@store/Cart'
+import ShoppingCartIcon from './ShoppingCartIcon'
 
 const Navbar = () => {
   const { pathname } = useRouter()
@@ -31,11 +31,13 @@ const Navbar = () => {
           </Link>
         </Menu.Menu>
       </Container>
-      <style jsx global>{`
-        .ui.menu.huge {
-          font-size: 1.5rem;
-        }
-      `}</style>
+      <style jsx global>
+        {`
+          .ui.menu.huge {
+            font-size: 1.5rem;
+          }
+        `}
+      </style>
     </Menu>
   )
 }

@@ -33,8 +33,8 @@ const YesOrNo = ({ initialResult }: { initialResult: string }) => {
 
   useEffect(() => {
     setIsLoading(true)
-    fetchResult().then((initialResult) => {
-      setResult(initialResult)
+    fetchResult().then((res) => {
+      setResult(res)
       setIsLoading(false)
     })
   }, [triggerCount])
@@ -67,15 +67,17 @@ const YesOrNo = ({ initialResult }: { initialResult: string }) => {
         </p>
       </div>
 
-      <style jsx>{`
-        div {
-          text-align: center;
-        }
-        div :global(h1.header) {
-          font-size: 7rem;
-          text-transform: uppercase;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          div {
+            text-align: center;
+          }
+          div :global(h1.header) {
+            font-size: 7rem;
+            text-transform: uppercase;
+          }
+        `}
+      </style>
     </Layout>
   )
 }

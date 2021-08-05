@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { Item, Button, Loader, Message } from 'semantic-ui-react'
 import { CartItemType } from '@store/Cart'
@@ -16,7 +15,7 @@ const CartItemList = ({
 }: CartItemListProps) => {
   if (loading) return <Loader active inline="centered" />
 
-  if (items.length === 0)
+  if (items.length === 0) {
     return (
       <Message warning as="section">
         <Message.Header>Your cart is empty</Message.Header>
@@ -25,9 +24,10 @@ const CartItemList = ({
         </p>
       </Message>
     )
+  }
 
-  const mapCartItemsToItems = (items: CartItemType[]) =>
-    items.map((cartItem) => {
+  const mapCartItemsToItems = (cartItems: CartItemType[]) =>
+    cartItems.map((cartItem) => {
       const { id, name, quantity, price, image } = cartItem
 
       return {

@@ -5,18 +5,16 @@ type CartSummaryProps = {
   totalAmount: number
 }
 
-const CartSummary = ({ totalAmount }: CartSummaryProps) => {
-  return (
-    <Segment clearing size="large" as="section">
-      <span>
-        <strong>Sub total:</strong>
-        {` ${totalAmount}`}
-      </span>
-      <Button color="black" floated="right">
-        Check out
-      </Button>
-    </Segment>
-  )
-}
+const CartSummary = ({ totalAmount }: CartSummaryProps) => (
+  <Segment clearing size="large" as="section">
+    <span>
+      <strong>Sub total:</strong>
+      {` ${totalAmount}`}
+    </span>
+    <Button color="black" floated="right">
+      Check out
+    </Button>
+  </Segment>
+)
 
 export default CartSummary

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Transition, Confirm } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 
 import { PosMeMuero } from '@components/SVGIcons'
 

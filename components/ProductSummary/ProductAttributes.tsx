@@ -30,11 +30,13 @@ const ProductAttributes = ({
       </Table.Body>
     </Table>
 
-    <style jsx>{`
-      .container :global(.attr-name) {
-        text-transform: capitalize;
-      }
-    `}</style>
+    <style jsx>
+      {`
+        .container :global(.attr-name) {
+          text-transform: capitalize;
+        }
+      `}
+    </style>
   </section>
 )
 
